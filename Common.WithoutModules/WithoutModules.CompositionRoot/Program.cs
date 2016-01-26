@@ -1,22 +1,14 @@
 ﻿using System.Diagnostics;
-using System.Windows;
 using Autofac;
 using Common.DataAccess;
 using Common.Logic;
 
 namespace WithoutModules.CompositionRoot
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    class Program
     {
-        private IContainer _container;
-
-        protected override void OnStartup(StartupEventArgs e)
+        static void Main(string[] args)
         {
-            base.OnStartup(e);
-
             var builder = new ContainerBuilder();
             // Регистрируем напрямую сервисы. В этом случае реализации сервисов должны быть public
             // Но можно убрать из модулей зависимость от инфраструктуры (в нашем случае - от Autofac)
@@ -24,14 +16,14 @@ namespace WithoutModules.CompositionRoot
             builder.RegisterType<VolumeDeliveryCostCalculator>().As<IDeliveryCostCalculator>();
             builder.RegisterType<ShopingCart>().As<IShopingCart>();
 
-            _container = builder.Build();
+            var container = builder.Build();
 
-            var deliveryCostCalculator = _container.Resolve<IDeliveryCostCalculator>();
+            var deliveryCostCalculator = container.Resolve<IDeliveryCostCalculator>();
             Debug.Assert(deliveryCostCalculator.GetType().Name.StartsWith("Volume"));
 
-            _container.Resolve<IProductRepository>();
+            container.Resolve<IProductRepository>();
 
-            _container.Resolve<IShopingCart>();
+            container.Resolve<IShopingCart>();
         }
     }
 }

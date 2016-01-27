@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using Autofac;
-using Common.DataAccess;
 using Common.Logic;
 using ModuleOrder.Logic;
 
@@ -12,19 +11,16 @@ namespace ModuleOrder.CompositionRoot
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule<CommonDataAccessModule>();
             builder.RegisterModule<CommonLogicModule>();
-            // Порядок модулей важен. Сначала нужно регистрировать CommonLogicModule, а потом SpecialLogicModule
-            // Иначе для интерфейса IDeliveryCostCalculator в контейнере будет VolumeDeliveryCostCalculator, а не WeightDeliveryCostCalculator
-            // Доступна инкапсуляция реализаций сервисов (WeightDeliveryCostCalculator не public, а internal)
+            // Порядок модулей важен. Сначала нужно регистрировать CommonLogicModule, а потом ModuleOrderLogicModule
+            // Иначе для интерфейса ICostCalculator в контейнере будет VolumeCostCalculator, а не WeightCostCalculator
+            // Доступна инкапсуляция реализаций сервисов (WeightCostCalculator и VolumeCostCalculator не public, а internal)
             builder.RegisterModule<ModuleOrderLogicModule>();
 
             var container = builder.Build();
 
-            var deliveryCostCalculator = container.Resolve<IDeliveryCostCalculator>();
+            var deliveryCostCalculator = container.Resolve<ICostCalculator>();
             Debug.Assert(deliveryCostCalculator.GetType().Name.StartsWith("Weight"));
-
-            container.Resolve<IProductRepository>();
 
             container.Resolve<IShopingCart>();
         }

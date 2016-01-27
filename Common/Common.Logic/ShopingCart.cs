@@ -1,31 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Common.DataAccess;
 using Common.Domain;
 
 namespace Common.Logic
 {
-    public class ShopingCart : IShopingCart
+    internal class ShopingCart : IShopingCart
     {
-        private readonly IDeliveryCostCalculator _deliveryCostCalculator;
-        private readonly IProductRepository _repository;
+        private readonly ICostCalculator _calculator;
         private readonly List<Product> _products = new List<Product>();
 
-        public ShopingCart(IDeliveryCostCalculator deliveryCostCalculator, IProductRepository repository)
+        public ShopingCart(ICostCalculator calculator)
         {
-            _deliveryCostCalculator = deliveryCostCalculator;
-            _repository = repository;
+            _calculator = calculator;
         }
 
-        public void AddProduct(int productId)
+        public void AddProduct(Product product)
         {
-            var product = _repository.GetProduct(productId);
-           _products.Add(product);
+            _products.Add(product);
         }
 
         public int GetDeliveryCost()
         {
-            return _products.Sum(p => _deliveryCostCalculator.GetDeliveryCost(p));
+            return _products.Sum(p => _calculator.GetDeliveryCost(p));
         }
     }
 }

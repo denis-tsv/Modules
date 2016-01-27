@@ -86,10 +86,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.DataAccess\Common.DataAccess.csproj">
-      <Project>{104ebe1f-4700-4189-8b70-f796c51a4575}</Project>
-      <Name>Common.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Common\Common.Logic\Common.Logic.csproj">
       <Project>{287cebf8-b153-4388-baf0-76b0bdc5f326}</Project>
       <Name>Common.Logic</Name>

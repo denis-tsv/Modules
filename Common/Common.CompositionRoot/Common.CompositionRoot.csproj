@@ -86,10 +86,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.DataAccess\Common.DataAccess.csproj">
-      <Project>{104EBE1F-4700-4189-8B70-F796C51A4575}</Project>
-      <Name>Common.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Common.Domain\Common.Domain.csproj">
       <Project>{27b96026-ab83-4810-a719-aa8a9a8082db}</Project>
       <Name>Common.Domain</Name>

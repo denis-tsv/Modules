@@ -7,7 +7,9 @@ namespace ModuleOrder.Logic
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<WeightDeliveryCostCalculator>().As<IDeliveryCostCalculator>();
+            builder
+                .RegisterType<WeightCostCalculator>()
+                .As<ICostCalculator>();
         }
     }
 }

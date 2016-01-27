@@ -6,8 +6,13 @@ namespace Common.Logic
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<VolumeDeliveryCostCalculator>().As<IDeliveryCostCalculator>();
-            builder.RegisterType<ShopingCart>().As<IShopingCart>();
+            builder
+                .RegisterType<VolumeCostCalculator>()
+                .As<ICostCalculator>();
+
+            builder
+                .RegisterType<ShopingCart>()
+                .As<IShopingCart>();
         }
     }
 }

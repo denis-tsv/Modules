@@ -1,7 +1,7 @@
 ﻿using Common.Domain;
 using Common.Logic;
 
-namespace ModuleOrder.Logic
+namespace Custom.Logic
 {
     internal class WeightCostCalculator : ICostCalculator
     {

@@ -50,7 +50,7 @@ namespace Common.Logic.Tests
             }
             catch (Exception ex)
             {
-                // ContractException is internal, so we can't use Assert.Throws<ContractException>
+                // ContractException - это internal класс, поэтому нельзя использовать Assert.Throws<ContractException>
                 Assert.Equal(ex.GetType().Name, "ContractException");
             }
         }
@@ -69,7 +69,7 @@ namespace Common.Logic.Tests
             }
             catch (Exception ex)
             {
-                // ContractException is internal, so we can't use Assert.Throws<ContractException>
+                // ContractException - это internal класс, поэтому нельзя использовать Assert.Throws<ContractException>
                 Assert.Equal(ex.GetType().Name, "ContractException");
             }
         }

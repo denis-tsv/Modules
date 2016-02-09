@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using Autofac;
 using Common.Logic;
-using ModuleOrder.Logic;
+using Custom.Logic;
 
-namespace ModuleOrder.CompositionRoot
+namespace Custom.CompositionRoot
 {
     class Program
     {
@@ -12,10 +12,10 @@ namespace ModuleOrder.CompositionRoot
             var builder = new ContainerBuilder();
 
             builder.RegisterModule<CommonLogicModule>();
-            // Порядок модулей важен. Сначала нужно регистрировать CommonLogicModule, а потом ModuleOrderLogicModule
+            // Порядок модулей важен. Сначала нужно регистрировать CommonLogicModule, а потом CustomLogicModule
             // Иначе для интерфейса ICostCalculator в контейнере будет VolumeCostCalculator, а не WeightCostCalculator
             // Доступна инкапсуляция реализаций сервисов (WeightCostCalculator и VolumeCostCalculator не public, а internal)
-            builder.RegisterModule<ModuleOrderLogicModule>();
+            builder.RegisterModule<CustomLogicModule>();
 
             var container = builder.Build();
 

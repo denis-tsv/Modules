@@ -4,7 +4,8 @@ using Common.Domain;
 
 namespace Common.Logic.Tests.Mocks
 {
-    // We can't use Moq because we need to insert checking of contract at compile time. So we will use custom mocks
+    // Нельзя использовать Moq, так как проверки на соответствие контракту подставляются на этапе компиляции и в mock классах, созданных на рантайме, их не будет
+    // Поэтому мы испльзуем компилируемые моки
     public class MockShopingCart : IShopingCart
     {
         public Action<Product> AddProductDelegate { get; set; } 

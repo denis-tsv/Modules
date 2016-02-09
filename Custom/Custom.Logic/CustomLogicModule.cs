@@ -1,9 +1,9 @@
 ﻿using Autofac;
 using Common.Logic;
 
-namespace ModuleOrder.Logic
+namespace Custom.Logic
 {
-    public class ModuleOrderLogicModule : Module
+    public class CustomLogicModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

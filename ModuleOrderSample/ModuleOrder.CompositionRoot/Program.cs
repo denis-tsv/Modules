@@ -21,7 +21,7 @@ namespace ModuleOrder.CompositionRoot
 
             var deliveryCostCalculator = container.Resolve<ICostCalculator>();
             Debug.Assert(deliveryCostCalculator.GetType().Name.StartsWith("Weight"));
-
+            
             container.Resolve<IShopingCart>();
         }
     }

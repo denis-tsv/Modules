@@ -19,6 +19,11 @@ namespace Common.Logic
             _products.Add(product);
         }
 
+        public void AddProducts(List<Product> products)
+        {
+            _products.AddRange(products);
+        }
+
         public int GetDeliveryCost()
         {
             return _products.Sum(p => _calculator.GetDeliveryCost(p));

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleOrder.Logic", "Module
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleOrder.CompositionRoot", "ModuleOrderSample\ModuleOrder.CompositionRoot\ModuleOrder.CompositionRoot.csproj", "{1CF00869-9BCD-4089-B475-785C6B814695}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Logic.Tests", "Common.Logic.Tests\Common.Logic.Tests.csproj", "{51127C0D-57F6-431A-A3F0-C874381E81E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{1CF00869-9BCD-4089-B475-785C6B814695}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CF00869-9BCD-4089-B475-785C6B814695}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CF00869-9BCD-4089-B475-785C6B814695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51127C0D-57F6-431A-A3F0-C874381E81E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51127C0D-57F6-431A-A3F0-C874381E81E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51127C0D-57F6-431A-A3F0-C874381E81E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51127C0D-57F6-431A-A3F0-C874381E81E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +59,6 @@ Global
 		{AB82848A-550E-422F-8F91-575630460F6D} = {53DDEA1D-BDE5-47F4-B99C-C3C93B12B1B0}
 		{BEDD01F9-C1D0-47CD-BB3E-6EB19CA5EA97} = {144581FA-B358-4893-81D3-823C8BB0C83B}
 		{1CF00869-9BCD-4089-B475-785C6B814695} = {144581FA-B358-4893-81D3-823C8BB0C83B}
+		{51127C0D-57F6-431A-A3F0-C874381E81E1} = {53DDEA1D-BDE5-47F4-B99C-C3C93B12B1B0}
 	EndGlobalSection
 EndGlobal

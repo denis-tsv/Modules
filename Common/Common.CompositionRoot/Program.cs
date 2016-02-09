@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using Autofac;
 using Common.Logic;
+using Common.Logic.Tests;
+using Common.Logic.Tests.Mocks;
 
 namespace Common.CompositionRoot
 {
@@ -20,6 +22,13 @@ namespace Common.CompositionRoot
             Debug.Assert(deliveryCostCalculator.GetType().Name.StartsWith("Volume"));
 
             container.Resolve<IShopingCart>();
+
+            var cart = new MockShopingCart
+            {
+                AddProductDelegate = (p) => { },
+            };
+
+            cart.AddProduct(null);
         }
     }
 }
